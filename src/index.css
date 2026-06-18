@@ -1011,3 +1011,14 @@ button:disabled {
 .gender-option input {
   display: none;
 }
+
+.mobile-block {
+  text-align: center;
+  padding: 2.5rem 2rem;
+}
+
+.mobile-icon {
+  font-size: 48px;
+  margin: 0 0 1rem;
+  line-height: 1;
+}

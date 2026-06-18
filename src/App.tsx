@@ -16,6 +16,25 @@ import ThankYou from './components/ThankYou'
 // Each screen below is a separate component; this file just decides
 // which one is on screen and passes it the data + callback it needs.
 export default function App() {
+
+  const isMobile =
+  window.innerWidth < 768 ||
+  /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+ 
+  if (isMobile) {
+    return (
+      <main className="page">
+        <div className="card mobile-block">
+          <p className="mobile-icon">💻</p>
+          <h1>Please use a laptop or computer</h1>
+          <p>
+            This questionnaire is not optimised for smartphones. Please
+            open the link on a laptop or desktop computer to participate.
+          </p>
+        </div>
+      </main>
+    )
+  }
   const [step, setStep] = useState<Step>('consent')
   const [condition] = useState<Condition>(() => assignCondition())
   const [{ prolificId, studyId, sessionId }] = useState(() => getProlificParams())
