@@ -83,7 +83,10 @@ export default function DonationDecision({
 
             <div className="stimulus-card stimulus-card-compact">
               {lines.slice(0, visibleCount).map((line, i) => (
-                <p key={i} className="stimulus-line reveal">
+                <p 
+                  key={i} 
+                  className={`stimulus-line ${displayMode === 'expanded' ? 'reveal' : ''}`}
+                >
                   {line}
                 </p>
               ))}

@@ -74,7 +74,10 @@ export default function MeasuresScreen({
 
           <div className="stimulus-card">
             {lines.map((line, i) => (
-              <p key={i} className="stimulus-line reveal">
+              <p 
+                key={i} 
+                className={`stimulus-line ${displayMode === 'expanded' ? 'reveal' : ''}`}
+              >
                 {line}
               </p>
             ))}
