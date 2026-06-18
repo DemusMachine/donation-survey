@@ -67,7 +67,10 @@ export default function Stimulus({ appealType, displayMode, onNext }: Props) {
 
           <div className="stimulus-card">
             {lines.slice(0, visibleCount).map((line, i) => (
-              <p key={i} className="stimulus-line reveal">
+              <p 
+                key={i} 
+                className={`stimulus-line ${displayMode === 'expanded' ? 'reveal' : ''}`}
+              >
                 {line}
               </p>
             ))}

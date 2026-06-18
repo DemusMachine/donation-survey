@@ -80,13 +80,7 @@ export default function MeasuresScreen({
             ))}
           </div>
           <div className="stimulus-actions">
-            <button
-              type="button"
-              className="donate-open-button"
-            >
-              ♥ Donate
-            </button>
-
+            <h2>Scroll Down to Answer Questionnaire</h2>
           </div>
         </section>
 
