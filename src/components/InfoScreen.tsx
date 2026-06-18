@@ -8,7 +8,6 @@ interface Props {
 export default function InfoScreen({ text, onNext }: Props) {
   return (
     <div className="card">
-      <h1>Important</h1>
       <p>{text}</p>
       <button onClick={onNext}>Continue</button>
     </div>

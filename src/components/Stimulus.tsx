@@ -61,9 +61,6 @@ export default function Stimulus({ appealType, displayMode, onNext }: Props) {
         <section className="stimulus-main">
           <div className="stimulus-kicker">{focusLabel}</div>
           <h1 className="stimulus-heading">{heading}</h1>
-          <p className="stimulus-intro">
-            Please read the message below before continuing.
-          </p>
 
           <div className="stimulus-card">
             {lines.slice(0, visibleCount).map((line, i) => (

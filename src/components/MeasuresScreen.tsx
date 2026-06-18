@@ -68,9 +68,6 @@ export default function MeasuresScreen({
         <section className="stimulus-main">
           <div className="stimulus-kicker">{focusLabel}</div>
           <h1 className="stimulus-heading">{heading}</h1>
-          <p className="stimulus-intro">
-            Please read the message below before continuing.
-          </p>
 
           <div className="stimulus-card">
             {lines.map((line, i) => (
@@ -83,7 +80,12 @@ export default function MeasuresScreen({
             ))}
           </div>
           <div className="stimulus-actions">
-            <h2>Scroll Down to Answer Questionnaire</h2>
+            <button
+              type="button"
+              className="donate-open-button"
+            >
+              ♥ Donate
+            </button>
           </div>
         </section>
 
@@ -133,15 +135,14 @@ export default function MeasuresScreen({
       <div className="stimulus-layout-compact" style={{ marginTop: '40px', padding: '0 2rem' }}>
         <div className="card" style={{ width: '100%', maxWidth: '600px', margin: '0 auto' }}>
           <div style={{ borderBottom: '2px solid #e2e8f0', paddingBottom: '12px', marginBottom: '24px', textAlign: 'left' }}>
-            <h2 style={{ fontSize: '24px', color: '#0f172a', margin: 0 }}>Participant Questionnaire</h2>
-            <p style={{ color: '#64748b', margin: '4px 0 0 0', fontSize: '14px' }}>
+            <p style={{ color: '#64748b', margin: '4px 0 0 0', fontSize: '13px', fontWeight: 'bold'}}>
               Please answer the following questions based on the information displayed above.
             </p>
           </div>
-
+          
           {measureBlocks && measureBlocks.map((block) => (
             <section key={block.id} className="measure-block" style={{ marginBottom: '32px', textAlign: 'left' }}>
-              <h3 style={{ fontSize: '18px', fontWeight: 600, color: '#1e293b' }}>{block.title}</h3>
+              <h3 style={{ fontSize: '0px', fontWeight: 600, color: '#1e293b' }}>{block.title}</h3>
               {block.instructions && <p className="instructions">{block.instructions}</p>}
               {block.items && block.items.map((item) => (
                 <LikertScale

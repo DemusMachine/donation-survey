@@ -383,18 +383,28 @@ body {
 }
 
 .stimulus-brand-mark {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: linear-gradient(180deg, var(--accent), var(--accent-strong));
-  color: white;
-  font-size: 12px;
-  font-weight: 800;
-  display: grid;
-  place-items: center;
-  letter-spacing: 0.08em;
-  box-shadow: 0 8px 20px rgba(21, 94, 171, 0.18);
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  /* Diagonal gradient adds depth over a flat vertical one */
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #ffffff;
+  /* Larger font size makes the acronym readable and impactful */
+  font-size: 14px;
+  font-weight: 750;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Generous tracking looks intentional and high-end */
+  letter-spacing: -0.02em; 
+  /* Layered soft shadow looks modern, not muddy */
+  box-shadow: 
+    0 4px 12px rgba(21, 94, 171, 0.12),
+    0 1px 2px rgba(21, 94, 171, 0.08);
+  /* Micro inner border adds elite craftsmanship */
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
+
 
 .stimulus-brand-title {
   font-size: 18px;
@@ -429,8 +439,8 @@ body {
   align-items: start;
 }
 .stimulus-layout-compact {
-  padding: 1.25rem 0 0.75rem;
-  gap: 1rem;
+  padding: 2rem 0 2.5rem;
+  gap: 1.5rem;
 }
 
 .stimulus-menu {
@@ -475,14 +485,14 @@ body {
 }
 
 .stimulus-heading {
-  margin: 1rem 0 0.4rem;
+  margin: 1rem 0 2rem .4rem;
   font-size: clamp(30px, 4vw, 42px);
   line-height: 1.08;
   color: var(--text);
   letter-spacing: -0.03em;
 }
 .stimulus-heading-compact {
-  font-size: clamp(24px, 3vw, 34px);
+  font-size: clamp(24px, 3vw, 42px);
 }
 .stimulus-card-compact {
   padding: 1rem 1.05rem;
@@ -902,7 +912,7 @@ button:disabled {
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 1.25rem 1.5rem 1.5rem;
+  padding: 0 1.5rem 1.5rem;
   margin-bottom: 1.25rem;
 }
 
@@ -919,9 +929,10 @@ button:disabled {
 }
 
 .instructions {
-  font-size: 13px;
-  color: var(--muted);
-  margin: 0 0 1rem;
+  font-size: 18px;
+  color: black;
+  margin: 19px 0 1rem;
+  font-weight: 600;
 }
 
 .likert-row {

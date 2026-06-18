@@ -62,7 +62,7 @@ export interface MeasureBlock {
 export const measureBlocks: MeasureBlock[] = [
   {
     id: 'growthMindset',
-    title: 'Section 1 of 8',
+    title: '',
     lowLabel: 'Strongly disagree',
     highLabel: 'Strongly agree',
     items: [
@@ -73,7 +73,7 @@ export const measureBlocks: MeasureBlock[] = [
   },
   {
     id: 'senseOfControl',
-    title: 'Section 2 of 8',
+    title: '',
     lowLabel: 'Strongly disagree',
     highLabel: 'Strongly agree',
     items: [
@@ -87,7 +87,7 @@ export const measureBlocks: MeasureBlock[] = [
   },
   {
     id: 'dynamism',
-    title: 'Section 3 of 8',
+    title: '',
     lowLabel: 'Strongly disagree',
     highLabel: 'Strongly agree',
     items: [
@@ -99,7 +99,8 @@ export const measureBlocks: MeasureBlock[] = [
   },
   {
     id: 'arousal',
-    title: 'How do you feel after viewing the donation website?',
+    title: '',
+    instructions: 'How do you feel after viewing the donation website?',
     lowLabel: '',
     highLabel: '',
     items: [
@@ -110,7 +111,7 @@ export const measureBlocks: MeasureBlock[] = [
   },
   {
     id: 'interaction',
-    title: 'Section 4 of 8',
+    title: '',
     lowLabel: 'Strongly disagree',
     highLabel: 'Strongly agree',
     items: [
@@ -123,8 +124,7 @@ export const measureBlocks: MeasureBlock[] = [
   },
   {
     id: 'personalConnection',
-    title: 'Section 5 of 8',
-    instructions: '1 = strongly disagree, 7 = strongly agree',
+    title: '',
     lowLabel: 'Strongly disagree',
     highLabel: 'Strongly agree',
     items: [
@@ -136,8 +136,7 @@ export const measureBlocks: MeasureBlock[] = [
   },
   {
     id: 'thinkingOthers',
-    title: 'Section 6 of 8',
-    instructions: '1 = not at all, 7 = very much',
+    title: '',
     lowLabel: 'Not at all',
     highLabel: 'Very much',
     items: [
@@ -147,8 +146,7 @@ export const measureBlocks: MeasureBlock[] = [
   },
   {
     id: 'warmGlow',
-    title: 'Section 7 of 8',
-    instructions: '1 = strongly disagree, 7 = strongly agree',
+    title: '',
     lowLabel: 'Strongly disagree',
     highLabel: 'Strongly agree',
     items: [

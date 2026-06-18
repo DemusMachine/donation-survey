@@ -77,9 +77,6 @@ export default function DonationDecision({
           <section className="stimulus-main stimulus-main-compact">
             <div className="stimulus-kicker">Donation preview</div>
             <h1 className="stimulus-heading stimulus-heading-compact">{heading}</h1>
-            <p className="stimulus-intro">
-              Please read the message below, then open the donation window.
-            </p>
 
             <div className="stimulus-card stimulus-card-compact">
               {lines.slice(0, visibleCount).map((line, i) => (
