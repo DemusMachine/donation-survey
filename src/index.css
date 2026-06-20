@@ -8,6 +8,22 @@
   --surface: #ffffff;
   --surface-alt: #eef5fb;
 }
+html {
+  font-size: 16px;
+}
+
+@media (min-width: 1440px) {
+  html {
+    font-size: 18px; 
+  }
+}
+
+/* Upscale font layouts for extra-large/ultra-wide screens */
+@media (min-width: 2560px) {
+  html {
+    font-size: 21px; 
+  }
+}
 
 * {
   box-sizing: border-box;
@@ -44,7 +60,7 @@ body {
   border: none;
   border-radius: 999px;
   padding: 0.9rem 1.5rem;
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 700;
   cursor: pointer;
   min-width: 160px;
@@ -85,13 +101,13 @@ body {
 
 .donation-modal-icon {
   color: #2f66ff;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 800;
 }
 
 .donation-modal h2 {
   margin: 0;
-  font-size: 24px;
+  font-size: 1.5rem;
   color: #1f2f66;
 }
 
@@ -106,7 +122,7 @@ body {
 .donation-amount-label {
   display: block;
   margin-bottom: 0.75rem;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
   color: #1f2f66;
   text-align: center;
@@ -126,7 +142,7 @@ body {
   width: 58px;
   display: grid;
   place-items: center;
-  font-size: 28px;
+  font-size: 1.75rem;
   color: #1f2f66;
   background: #f4f7ff;
   border-right: 1px solid #d7e2ff;
@@ -137,7 +153,7 @@ body {
   border: none;
   outline: none;
   padding: 0 1rem;
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: 700;
   color: #1f2f66;
   background: transparent;
@@ -152,7 +168,7 @@ body {
   border: none;
   border-radius: 12px;
   padding: 0.95rem 1.2rem;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 700;
   cursor: pointer;
 }
@@ -177,7 +193,7 @@ body {
 .donation-intro-card p {
   margin: 0 0 0.55rem;
   line-height: 1.55;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .donation-intro-card p:last-child {
@@ -206,24 +222,24 @@ body {
   color: white;
   display: grid;
   place-items: center;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 800;
 }
 
 .donation-mini-title {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 800;
   color: #1f2f66;
 }
 
 .donation-mini-subtitle {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--muted);
 }
 
 .donation-mini-copy {
   margin: 0.85rem 0 1rem;
-  font-size: 13px;
+  font-size: 0.8125rem;
   line-height: 1.5;
   color: var(--muted);
 }
@@ -234,7 +250,7 @@ body {
   border: none;
   border-radius: 999px;
   padding: 0.85rem 1.35rem;
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 700;
   cursor: pointer;
 }
@@ -265,13 +281,13 @@ body {
 
 .donation-modal-icon {
   color: #2f66ff;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 800;
 }
 
 .donation-modal h2 {
   margin: 0;
-  font-size: 24px;
+  font-size: 1.5rem;
   color: #1f2f66;
 }
 
@@ -286,7 +302,7 @@ body {
 .donation-amount-label {
   display: block;
   margin-bottom: 0.75rem;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
   color: #1f2f66;
   text-align: center;
@@ -306,7 +322,7 @@ body {
   width: 58px;
   display: grid;
   place-items: center;
-  font-size: 28px;
+  font-size: 1.75rem;
   color: #1f2f66;
   background: #f4f7ff;
   border-right: 1px solid #d7e2ff;
@@ -318,7 +334,7 @@ body {
   outline: none;
   width: 100%;
   padding: 0 1rem;
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: 700;
   color: #1f2f66;
   background: transparent;
@@ -345,7 +361,7 @@ body {
   border: none;
   border-radius: 12px;
   padding: 0.95rem 1.2rem;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 700;
   cursor: pointer;
 }
@@ -383,57 +399,62 @@ body {
 }
 
 .stimulus-brand-mark {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
+  width:13.5rem;
+  height:4rem;
   /* Diagonal gradient adds depth over a flat vertical one */
-  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
   color: #ffffff;
   /* Larger font size makes the acronym readable and impactful */
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 750;
   display: flex;
   align-items: center;
   justify-content: center;
   /* Generous tracking looks intentional and high-end */
   letter-spacing: -0.02em; 
-  /* Layered soft shadow looks modern, not muddy */
-  box-shadow: 
-    0 4px 12px rgba(21, 94, 171, 0.12),
-    0 1px 2px rgba(21, 94, 171, 0.08);
-  /* Micro inner border adds elite craftsmanship */
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 0.4rem;
+}
+.stimulus-brand-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
 }
 
 
 .stimulus-brand-title {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 800;
   color: var(--text);
   line-height: 1.1;
 }
 
 .stimulus-brand-subtitle {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--muted);
   margin-top: 2px;
 }
 
 .stimulus-topbar-note {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
 .stimulus-topbar-compact {
-  height: 64px;
+    min-height: 72px;
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  backdrop-filter: blur(6px);
 }
 .stimulus-layout {
   flex: 1;
-  width: min(1180px, calc(100% - 2rem));
+  width: 55%;
   margin: 0 auto;
   padding: 2rem 0 2.5rem;
-  display: grid;
   grid-template-columns: minmax(0, 1.7fr) minmax(290px, 0.9fr);
   gap: 1.5rem;
   align-items: start;
@@ -452,7 +473,7 @@ body {
 .stimulus-menu a {
   text-decoration: none;
   color: #1f4e79;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
 }
 
@@ -468,12 +489,18 @@ body {
   box-shadow: 0 18px 50px rgba(15, 76, 138, 0.08);
 }
 .stimulus-main-compact {
-  padding: 32px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(207, 217, 230, 0.9);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 18px 50px rgba(15, 76, 138, 0.08);
 }
 
 .stimulus-kicker {
-  display: inline-block;
-  font-size: 11px;
+  display: block;
+  margin: 0 auto;
+  width: fit-content;
+  font-size: 0.6875rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -485,43 +512,48 @@ body {
 }
 
 .stimulus-heading {
-  margin: 1rem 0 2rem .4rem;
+  margin: 1rem 0 1rem;
   font-size: clamp(30px, 4vw, 42px);
   line-height: 1.08;
   color: var(--text);
   letter-spacing: -0.03em;
+  text-align: center;
 }
 .stimulus-heading-compact {
-  font-size: clamp(24px, 3vw, 42px);
+    font-size: clamp(30px, 4vw, 42px);
 }
 .stimulus-card-compact {
-  padding: 1rem 1.05rem;
-  min-height: 0;
+  background: var(--surface);
+  /*border: 1px solid var(--border);
+  border-left: 5px solid var(--accent);
+  border-radius: 18px;*/
+  padding: 1.3rem 1.35rem;
+  /*box-shadow: 0 10px 30px rgba(16, 24, 40, 0.06);*/
+  min-height: 110px;
+  text-align: center;
 }
 
-.stimulus-sidebar-compact {
-  gap: 0.75rem;
-}
 
 .stimulus-intro {
   margin: 0 0 1.25rem;
   color: var(--muted);
-  font-size: 15px;
+  font-size: 0.9375rem;
 }
 
 .stimulus-card {
   background: var(--surface);
-  border: 1px solid var(--border);
+  /*border: 1px solid var(--border);
   border-left: 5px solid var(--accent);
-  border-radius: 18px;
+  border-radius: 18px;*/
   padding: 1.3rem 1.35rem;
-  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.06);
+  /*box-shadow: 0 10px 30px rgba(16, 24, 40, 0.06);*/
   min-height: 110px;
+  text-align: center;
 }
 
 .stimulus-line {
-  margin: 0 0 0.75rem;
-  font-size: 15px;
+  margin: 0.1rem 0 0.75rem;
+  font-size: 1rem;
   line-height: 1.7;
   color: var(--text);
 }
@@ -532,9 +564,9 @@ body {
 
 .stimulus-actions {
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 1rem;
-  margin-top: 1.5rem;
   flex-wrap: wrap;
 }
 
@@ -544,7 +576,7 @@ body {
   border: none;
   border-radius: 12px;
   padding: 0.85rem 1.4rem;
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 700;
   cursor: pointer;
   box-shadow: 0 10px 24px rgba(21, 94, 171, 0.22);
@@ -563,7 +595,7 @@ body {
 }
 
 .stimulus-footnote {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--muted);
 }
 
@@ -603,7 +635,7 @@ body {
   border-radius: 999px;
   background: #edf5ff;
   color: #0a58ca;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
 }
 
@@ -625,7 +657,7 @@ body {
 
 .impact-desc {
   margin: 0.7rem 0 0;
-  font-size: 13px;
+  font-size: 0.8125rem;
   line-height: 1.5;
   color: var(--muted);
 }
@@ -644,19 +676,19 @@ body {
 
 .promo-card h2 {
   margin: 0.35rem 0 0.4rem;
-  font-size: 17px;
+  font-size: 1.0625rem;
   color: var(--text);
 }
 
 .promo-card p {
   margin: 0;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 1.65;
   color: var(--muted);
 }
 
 .promo-label {
-  font-size: 11px;
+  font-size: 0.6875rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--accent);
@@ -671,7 +703,7 @@ body {
   margin: 0.7rem 0 0;
   padding-left: 1.1rem;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 1.7;
 }
 
@@ -690,17 +722,17 @@ body {
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 2rem;
-  max-width: 600px;
+  max-width: 50%;
   margin: 0 auto;
 }
 
 h1 {
-  font-size: 22px;
+  font-size: 1.375rem;
   margin-top: 0;
 }
 
 h2 {
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 p {
@@ -732,7 +764,7 @@ p {
 }
 
 .hero-logo {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 800;
   color: #ffffff;
   letter-spacing: -0.02em;
@@ -743,7 +775,7 @@ p {
 }
 
 .hero-nav-tagline {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: rgba(255,255,255,0.4);
   font-style: italic;
 }
@@ -762,7 +794,7 @@ p {
 /* Large white heading */
 .hero-heading {
   margin: 0 0 0.6rem;
-  font-size: 34px;
+  font-size: 2.125rem;
   font-weight: 900;
   color: #ffffff;
   text-align: center;
@@ -794,7 +826,7 @@ p {
 
 .hero-card p {
   margin: 0 0 0.6rem;
-  font-size: 14.5px;
+  font-size: 0.90625rem;
   line-height: 1.65;
   color: #2c2c2a;
 }
@@ -811,7 +843,7 @@ p {
   border: none;
   border-radius: 6px;
   padding: 0.75rem 2.2rem;
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 600;
   cursor: pointer;
   letter-spacing: 0.02em;
@@ -850,7 +882,7 @@ p {
 .field {
   display: block;
   margin: 1rem 0;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 fieldset.field {
@@ -873,7 +905,7 @@ input[type="text"] {
   padding: 0.5rem;
   border: 1px solid var(--border);
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 button {
@@ -882,7 +914,7 @@ button {
   border: none;
   border-radius: 6px;
   padding: 0.6rem 1.2rem;
-  font-size: 14px;
+  font-size: 0.875rem;
   cursor: pointer;
   margin-top: 1rem;
 }
@@ -921,7 +953,7 @@ button:disabled {
 }
 
 .section-label {
-  font-size: 11px;
+  font-size: 0.6875rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--accent);
@@ -929,7 +961,7 @@ button:disabled {
 }
 
 .instructions {
-  font-size: 18px;
+  font-size: 1.125rem;
   color: black;
   margin: 19px 0 1rem;
   font-weight: 600;
@@ -940,7 +972,7 @@ button:disabled {
 }
 
 .likert-text {
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 500;
   margin-bottom: 0.7rem;
 }
@@ -952,7 +984,7 @@ button:disabled {
 }
 
 .likert-anchor {
-  font-size: 11px;
+  font-size: 0.6875rem;
   color: var(--muted);
   width: 90px;
   line-height: 1.3;
@@ -989,7 +1021,7 @@ button:disabled {
 }
 
 .likert-option span {
-  font-size: 11px;
+  font-size: 0.6875rem;
   color: var(--muted);
 }
 
@@ -1004,7 +1036,7 @@ button:disabled {
   padding: 0.6rem 0.5rem;
   border: 1px solid var(--border);
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 0.875rem;
   cursor: pointer;
   transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 }
@@ -1029,7 +1061,38 @@ button:disabled {
 }
 
 .mobile-icon {
-  font-size: 48px;
+  font-size: 3rem;
   margin: 0 0 1rem;
   line-height: 1;
+}
+
+/* Mini website reminder shown above each questionnaire page in
+   MeasuresScreen.tsx. Reuses your real .stimulus-* classes, then
+   scales the whole thing down and clips it to a fixed-height window.
+   Tune --preview-scale and the height below until the clipped window
+   shows roughly "logo + heading + card" from your real site. */
+.preview-mini-frame {
+  --preview-scale: 0.5;
+  height: 20rem;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.preview-mini-frame .stimulus-shell {
+  margin: 0;
+  width: 100%;
+  border: 0.5rem solid var(--border);
+  border-radius: 0.875rem;
+  transform: scale(var(--preview-scale));
+  transform-origin: top center;
+  pointer-events: none;
+} 
+
+.measure-page-card .likert-text {
+  font-size: 1rem;
+}
+
+.measure-page-card .likert-anchor {
+  font-size: 0.75rem;
+  width: 6.25rem;
 }

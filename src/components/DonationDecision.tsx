@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { AppealType, DisplayMode } from '../types'
 import { appealContent } from '../content'
+import logoImg from '../assets/q.jpg'
 
 interface Props {
   appealType: AppealType
@@ -17,7 +18,7 @@ export default function DonationDecision({
   const [showModal, setShowModal] = useState(false)
   const [amount, setAmount] = useState('0')
   const [error, SetError] = useState('')
-  
+  const [showButton,setShowButton] = useState(false)
   const [visibleCount, setVisibleCount] = useState(
     displayMode === 'control' ? lines.length : 1,
   )
@@ -31,6 +32,16 @@ export default function DonationDecision({
   
     const allVisible = visibleCount >= lines.length
 
+    useEffect(() => {
+    if (!allVisible) return
+    if (displayMode === 'control') {
+      setShowButton(true)
+      return
+    }
+    const timer = setTimeout(() => setShowButton(true), 1500)
+    return () => clearTimeout(timer)
+  }, [allVisible, displayMode])
+  
     function handleDonateNow() {
     if (!amount || amount.trim() === '') {
       SetError('Type real amount of money')
@@ -53,15 +64,9 @@ export default function DonationDecision({
       <div className="donation-page-mini">
         <header className="stimulus-topbar stimulus-topbar-compact">
           <div className="stimulus-brand">
-            <div className="stimulus-brand-mark" aria-hidden="true">
-              H4N
-            </div>
-            <div>
-              <div className="stimulus-brand-title">Help 4 Needy</div>
-              <div className="stimulus-brand-subtitle">
-                Official donation information portal
-              </div>
-            </div>
+          <div className="stimulus-brand-mark" aria-hidden="true">
+            <img src={logoImg} alt="" />
+          </div>
           </div>
 
           <nav className="stimulus-menu">
@@ -90,7 +95,8 @@ export default function DonationDecision({
             </div>
             
           <div className="stimulus-actions">
-            <button
+            {showButton &&(
+              <button
               type="button"
               disabled={!allVisible}
               className="donate-open-button"
@@ -98,51 +104,11 @@ export default function DonationDecision({
             >
               ♥ Donate
             </button>
-
+            )}
           </div>
 
           </section>
 
-          <aside className="stimulus-sidebar" aria-label="Impact statistics">
-          <div className="impact-card">
-            <div className="impact-top">
-              <div className="impact-stat">12,450</div>
-              <div className="impact-pill">Children Supported</div>
-            </div>
-            <div className="impact-bar">
-              <span style={{ width: '86%' }} />
-            </div>
-            <p className="impact-desc">
-              Reaching children and families through direct food assistance programs.
-            </p>
-          </div>
-
-          <div className="impact-card">
-            <div className="impact-top">
-              <div className="impact-stat">58</div>
-              <div className="impact-pill">Community Partners</div>
-            </div>
-            <div className="impact-bar">
-              <span style={{ width: '68%' }} />
-            </div>
-            <p className="impact-desc">
-              Working with local schools, agencies, and community groups.
-            </p>
-          </div>
-
-          <div className="impact-card">
-            <div className="impact-top">
-              <div className="impact-stat">97%</div>
-              <div className="impact-pill">Program Funding</div>
-            </div>
-            <div className="impact-bar">
-              <span style={{ width: '97%' }} />
-            </div>
-            <p className="impact-desc">
-              A strong share of resources is directed toward programs and services.
-            </p>
-          </div>
-        </aside>
         </main>
       </div>
 

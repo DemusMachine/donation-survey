@@ -1,5 +1,5 @@
 interface Props {
-  text: string
+  text: string[]
   onNext: () => void
 }
 
@@ -8,7 +8,11 @@ interface Props {
 export default function InfoScreen({ text, onNext }: Props) {
   return (
     <div className="card">
-      <p>{text}</p>
+      <div className="info-text-container">
+        {text.map((sentence, index) => (
+          <p key={index} className="info-sentence">{sentence}</p>
+        ))}
+      </div>
       <button onClick={onNext}>Continue</button>
     </div>
   )

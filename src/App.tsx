@@ -104,14 +104,16 @@ export default function App() {
 
       {step === 'measures' && (
         <MeasuresScreen
+          appealType={condition.appealType}
           responses={responses}
           setResponses={setResponses}
           onNext={() => setStep('demographics')}
         />
       )}
 
-      {step === 'demographics' && (
+{step === 'demographics' && (
         <Demographics
+          appealType={condition.appealType}
           gender={gender}
           setGender={setGender}
           genderOther={genderOther}

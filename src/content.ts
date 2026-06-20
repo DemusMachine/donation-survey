@@ -26,21 +26,26 @@ export const appealContent: Record<AppealType, { heading: string; lines: string[
 
 // Page 2 - shown once, right after consent.
 export const infoPage2Text =
-  'Next, you will read information about Food Bank USA, an organization that provides food assistance to children in need. Please carefully read the following information from our official website.'
+  ['Next, you will read information about Food Bank USA, an organization that provides food assistance to children in need.',
+     'Please carefully read the following information from our official website.'
+];
 
 // Page 3 - a second, separate screen with the same message (edit
 // independently of infoPage2Text above if you want different wording
 // for the two pages later).
-export const infoPage3Text =
-  'In addition to and separate from the payment you received for your participation in this study, you would receive a $2 bonus payment to use as you wish. You could choose to keep the entire amount of the bonus, donate the entire amount, or split the $2 between yourself and Food Bank USA. Please indicate the amount you would like to donate.'
-
+export const infoPage3Text =[
+  'In addition to and separate from the payment you received for your participation in this study, you would receive a $2 bonus payment to use as you wish.',
+  'You could choose to keep the entire amount of the bonus, donate the entire amount, or split the $2 between yourself and Food Bank USA. Please indicate the amount you would like to donate.'
+];
 // Page 5 - the donation-decision intro, shown above the $2 bonus slider.
 export const donationIntroLines = [
   'In addition to and separate from the payment you received for your participation in this study, you would receive a $2 bonus payment to use as you wish.',
   'You could choose to keep the entire amount of the bonus, donate the entire amount, or split the $2 between yourself and Food Bank USA.',
   'Please indicate the amount you would like to donate.',
 ]
-
+// Shown once, on its own page, before the first questionnaire section.
+export const measuresInstructionText =
+  'Please answer the following questions based on the donation website you just viewed.'
 export interface LikertItem {
   id: string
   text: string

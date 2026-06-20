@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { AppealType, DisplayMode } from '../types'
 import { appealContent } from '../content'
+import logoImg from '../assets/q.jpg'
 
 interface Props {
   appealType: AppealType
@@ -14,6 +15,7 @@ export default function Stimulus({ appealType, displayMode, onNext }: Props) {
     displayMode === 'control' ? lines.length : 1,
   )
   const [clicks, setClicks] = useState(0)
+  const [showButton,setShowButton] = useState(false)
   const startTime = useRef(Date.now())
 
   useEffect(() => {
@@ -24,6 +26,16 @@ export default function Stimulus({ appealType, displayMode, onNext }: Props) {
   }, [displayMode, visibleCount, lines.length])
 
   const allVisible = visibleCount >= lines.length
+
+  useEffect(() => {
+    if (!allVisible) return
+    if (displayMode === 'control') {
+      setShowButton(true)
+      return
+    }
+    const timer = setTimeout(() => setShowButton(true), 1500)
+    return () => clearTimeout(timer)
+  }, [allVisible, displayMode])
 
   function handleNext() {
     onNext(clicks, Date.now() - startTime.current)
@@ -39,13 +51,7 @@ export default function Stimulus({ appealType, displayMode, onNext }: Props) {
       <header className="stimulus-topbar">
         <div className="stimulus-brand">
           <div className="stimulus-brand-mark" aria-hidden="true">
-            H4N
-          </div>
-          <div>
-            <div className="stimulus-brand-title">Help 4 Needy</div>
-            <div className="stimulus-brand-subtitle">
-              Official donation information portal
-            </div>
+            <img src={logoImg} alt="" />
           </div>
         </div>
           <nav className="stimulus-menu">
@@ -74,57 +80,18 @@ export default function Stimulus({ appealType, displayMode, onNext }: Props) {
           </div>
 
           <div className="stimulus-actions">
-            <button
-              className="stimulus-button"
-              disabled={!allVisible}
-              onClick={handleNext}
-            >
-              Continue →
-            </button>
-
+            {showButton && (
+              <button
+                className="stimulus-button"
+                onClick={handleNext}
+              >
+                Continue →
+              </button>
+            )}
           </div>
         </section>
 
-        <aside className="stimulus-sidebar" aria-label="Impact statistics">
-          <div className="impact-card">
-            <div className="impact-top">
-              <div className="impact-stat">12,450</div>
-              <div className="impact-pill">Children Supported</div>
-            </div>
-            <div className="impact-bar">
-              <span style={{ width: '86%' }} />
-            </div>
-            <p className="impact-desc">
-              Reaching children and families through direct food assistance programs.
-            </p>
-          </div>
-
-          <div className="impact-card">
-            <div className="impact-top">
-              <div className="impact-stat">58</div>
-              <div className="impact-pill">Community Partners</div>
-            </div>
-            <div className="impact-bar">
-              <span style={{ width: '68%' }} />
-            </div>
-            <p className="impact-desc">
-              Working with local schools, agencies, and community groups.
-            </p>
-          </div>
-
-          <div className="impact-card">
-            <div className="impact-top">
-              <div className="impact-stat">97%</div>
-              <div className="impact-pill">Program Funding</div>
-            </div>
-            <div className="impact-bar">
-              <span style={{ width: '97%' }} />
-            </div>
-            <p className="impact-desc">
-              A strong share of resources is directed toward programs and services.
-            </p>
-          </div>
-        </aside>
+        
       </main>
     </div>
   )
