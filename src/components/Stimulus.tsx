@@ -64,7 +64,7 @@ export default function Stimulus({ appealType, displayMode, onNext }: Props) {
       </header>
 
       <main className="stimulus-layout">
-        <section className="stimulus-main">
+        <section>
           <h1 className="stimulus-heading">{heading}</h1>
 
           <div className="stimulus-card">

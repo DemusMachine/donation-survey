@@ -79,7 +79,7 @@ export default function DonationDecision({
         </header>
 
         <main className="stimulus-layout stimulus-layout-compact">
-          <section className="stimulus-main stimulus-main-compact">
+          <section>
             <h1 className="stimulus-heading stimulus-heading-compact">{heading}</h1>
 
             <div className="stimulus-card stimulus-card-compact">

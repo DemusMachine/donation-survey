@@ -5,7 +5,7 @@ import { AppealType, LikertResponses } from './types'
 // a time, in "control" mode they all appear together.
 export const appealContent: Record<AppealType, { heading: string; lines: string[] }> = {
   autonomous: {
-    heading: 'Help us help others become self-sufficient!',
+    heading: 'Teach to fish: Help us help others become self-sufficient!',
     lines: [
       'Help 4 Needy Center is a nonprofit coalition to combat the rising conditions of poverty.',
       'Our focus is on providing resources to help individuals become self-sufficient. Help 4 Needy provides assistance to individuals in a variety of ways that are designed to promote their self-sufficiency and ensure that these individuals can eventually support themselves moving forward (e.g., skills training; education).',
@@ -15,7 +15,7 @@ export const appealContent: Record<AppealType, { heading: string; lines: string[
     ],
   },
   immediate: {
-    heading: 'Help us help others meet their immediate needs!',
+    heading: 'Give a fish: Help us help others meet their immediate needs!',
     lines: [
       'Help 4 Needy Center is a nonprofit coalition to combat the rising conditions of poverty.',
       'Our focus is on providing resources to help individuals meet their immediate needs directly. Help 4 Needy provides assistance to individuals in a variety of ways that are designed to meet their short-term needs and ensure that assistance is provided to address the current issues facing those in need (e.g., living materials; food).',
@@ -28,7 +28,7 @@ export const appealContent: Record<AppealType, { heading: string; lines: string[
 
 // Page 2 - shown once, right after consent.
 export const infoPage2Text =
-  ['Next, you will read information about Food Bank USA, an organization that provides food assistance to children in need.',
+  ['Next, you will read information about Help 4 Needy, an organization that provides assistance to children in need.',
      'Please carefully read the following information from our official website.'
 ];
 
@@ -37,12 +37,12 @@ export const infoPage2Text =
 // for the two pages later).
 export const infoPage3Text =[
   'In addition to and separate from the payment you received for your participation in this study, you would receive a $2 bonus payment to use as you wish.',
-  'You could choose to keep the entire amount of the bonus, donate the entire amount, or split the $2 between yourself and Food Bank USA. Please indicate the amount you would like to donate.'
+  'You could choose to keep the entire amount of the bonus, donate the entire amount, or split the $2 between yourself and Help 4 Needy. Please indicate the amount you would like to donate.'
 ];
 // Page 5 - the donation-decision intro, shown above the $2 bonus slider.
 export const donationIntroLines = [
   'In addition to and separate from the payment you received for your participation in this study, you would receive a $2 bonus payment to use as you wish.',
-  'You could choose to keep the entire amount of the bonus, donate the entire amount, or split the $2 between yourself and Food Bank USA.',
+  'You could choose to keep the entire amount of the bonus, donate the entire amount, or split the $2 between yourself and Help 4 Needy.',
   'Please indicate the amount you would like to donate.',
 ]
 // Shown once, on its own page, before the first questionnaire section.

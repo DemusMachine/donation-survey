@@ -53,7 +53,6 @@ export default function MeasuresScreen({
   if (section === 0) {
     return (
       <div className="card">
-        <h2>Instructions</h2>
         <p>{measuresInstructionText}</p>
         <button onClick={() => setSection(1)}>Continue</button>
       </div>
@@ -91,7 +90,7 @@ export default function MeasuresScreen({
           </nav>
           </header>
       <main className="stimulus-layout">
-        <section className="stimulus-main">
+        <section>
           <h1 className="stimulus-heading">{heading}</h1>
 
           <div className="stimulus-card">
