@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect , useRef} from 'react'
 import { AppealType, DisplayMode } from '../types'
 import { appealContent } from '../content'
 import logoImg from '../assets/q.jpg'
@@ -6,7 +6,7 @@ import logoImg from '../assets/q.jpg'
 interface Props {
   appealType: AppealType
   displayMode: DisplayMode
-  onNext: (amount: number) => void
+  onNext: (amount: number, donationDwellMs: number) => void
 }
 
 export default function DonationDecision({
@@ -22,6 +22,7 @@ export default function DonationDecision({
   const [visibleCount, setVisibleCount] = useState(
     displayMode === 'control' ? lines.length : 1,
   )
+  const startTime = useRef(Date.now())
  
   useEffect(() => {
       if (displayMode !== 'expanded') return
@@ -56,7 +57,8 @@ export default function DonationDecision({
     }
 
     SetError('') 
-    onNext(value)
+    const donationDwellMs = Date.now() - startTime.current
+    onNext(value, donationDwellMs)
   }
 
   return (

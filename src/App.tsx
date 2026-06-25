@@ -45,6 +45,7 @@ export default function App() {
   const [gender, setGender] = useState('')
   const [genderOther, setGenderOther] = useState('')
   const [age, setAge] = useState('')
+  const [donationDwellMs, setDonationDwellMs] = useState(0)
 
   async function handleSubmit() {
     const data: SurveyData = {
@@ -55,6 +56,7 @@ export default function App() {
       donationAmount,
       stimulusClicks,
       stimulusDwellMs,
+      donationDwellMs,
       responses: orderResponses(responses),
       gender,
       genderOther,
@@ -95,8 +97,9 @@ export default function App() {
         <DonationDecision
           appealType={condition.appealType}
           displayMode={condition.displayMode}
-          onNext={(amount) => {
+          onNext={(amount, dwellMs) => {
             setDonationAmount(amount)
+            setDonationDwellMs(dwellMs)
             setStep('measures')
           }}
         />

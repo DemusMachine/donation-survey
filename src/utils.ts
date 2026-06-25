@@ -11,6 +11,7 @@ export function downloadCSV(data: SurveyData) {
     donationAmount: data.donationAmount,
     stimulusClicks: data.stimulusClicks,
     stimulusDwellMs: data.stimulusDwellMs,
+    donationDwellMs: data.donationDwellMs,
     gender: data.gender,
     genderOther: data.genderOther,
     age: data.age,
