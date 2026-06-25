@@ -913,7 +913,7 @@ input[type="text"] {
 }
 
 button {
-  margin-top: 0.2rem;
+  margin-top: 0.5rem;
   background: var(--accent);
   color: white;
   border: none;
