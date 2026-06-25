@@ -114,6 +114,7 @@ export default function App() {
 
 {step === 'demographics' && (
         <Demographics
+          displayMode={condition.displayMode}
           appealType={condition.appealType}
           gender={gender}
           setGender={setGender}

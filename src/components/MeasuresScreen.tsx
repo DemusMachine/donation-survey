@@ -25,25 +25,32 @@ export default function MeasuresScreen({
     displayMode === 'control' ? lines.length : 1,
   )
   const [showButton,setShowButton] = useState(false)
+  const allVisible = visibleCount >= lines.length
 
   useEffect(() => {
-        if (section !== 1) return
     if (displayMode !== 'expanded') return
     if (visibleCount >= lines.length) return
     const timer = setTimeout(() => setVisibleCount((c) => c + 1), 1500)
     return () => clearTimeout(timer)
-  }, [section, displayMode, visibleCount, lines.length])
+  }, [displayMode, visibleCount, lines.length])
 
-  const allVisible = visibleCount >= lines.length
-  useEffect(() => {
-    if (!allVisible) return
-    if (displayMode === 'control') {
-      setShowButton(true)
-      return
+    useEffect(() => {
+    setVisibleCount(displayMode === 'control' ? lines.length : 1);
+    if (section > 0) {
+      setShowButton(false);
     }
-    const timer = setTimeout(() => setShowButton(true), 1500)
-    return () => clearTimeout(timer)
-  }, [allVisible, displayMode])
+  }, [section, displayMode, lines.length]);
+  
+  useEffect(() => {
+    if (!allVisible) return;
+    if (displayMode === 'control') {
+      setShowButton(true);
+      return;
+    }
+    const timer = setTimeout(() => setShowButton(true), 1500);
+    return () => clearTimeout(timer);
+  }, [allVisible, displayMode, section])
+
 
   function handleChange(id: string, value: number) {
     setResponses({ ...responses, [id]: value })
@@ -72,7 +79,7 @@ export default function MeasuresScreen({
   }
 
   return (
-    <div>
+    <>
       <div className="preview-mini-frame">
         <div className="stimulus-shell">
           <header className="stimulus-topbar">
@@ -94,7 +101,7 @@ export default function MeasuresScreen({
           <h1 className="stimulus-heading">{heading}</h1>
 
           <div className="stimulus-card">
-            {(section === 1 ? lines.slice(0, visibleCount) : lines).map((line, i) => (
+            {lines.slice(0, visibleCount).map((line, i) => (
               <p 
                 key={i} 
                 className={`stimulus-line ${displayMode === 'expanded' ? 'reveal' : ''}`}
@@ -140,6 +147,6 @@ export default function MeasuresScreen({
           Continue
         </button>
       </div>
-    </div>
+    </>
   )
 }

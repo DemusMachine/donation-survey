@@ -1,11 +1,12 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import { appealContent, measureBlocks, measuresInstructionText } from '../content'
-import { AppealType, LikertResponses } from '../types'
+import { AppealType, LikertResponses, DisplayMode } from '../types'
 import LikertScale from './LikertScale'
 import logoImg from '../assets/q.jpg'
 
 interface Props {
   appealType: AppealType
+  displayMode: DisplayMode
   gender: string
   setGender: (v: string) => void
   genderOther: string
@@ -17,6 +18,7 @@ interface Props {
 
 export default function Demographics({
   appealType,
+  displayMode,
   gender,
   setGender,
   genderOther,
@@ -29,6 +31,28 @@ export default function Demographics({
 
   const canSubmit = gender.trim() !== '' && age.trim() !== '' && !isSubmitting
   const { heading, lines } = appealContent[appealType]
+  const [visibleCount, setVisibleCount] = useState(
+    displayMode === 'control' ? lines.length : 1,
+  )
+  const [showButton,setShowButton] = useState(false)
+
+    useEffect(() => {
+    if (displayMode !== 'expanded') return
+    if (visibleCount >= lines.length) return
+    const timer = setTimeout(() => setVisibleCount((c) => c + 1), 1500)
+    return () => clearTimeout(timer)
+  }, [displayMode, visibleCount, lines.length])
+
+  const allVisible = visibleCount >= lines.length
+  useEffect(() => {
+    if (!allVisible) return
+    if (displayMode === 'control') {
+      setShowButton(true)
+      return
+    }
+    const timer = setTimeout(() => setShowButton(true), 1500)
+    return () => clearTimeout(timer)
+  }, [allVisible, displayMode])
 
 function handleFormSubmit() {
   if (!canSubmit) return
@@ -60,25 +84,35 @@ function handleFormSubmit() {
             <a href="#">Contact Us</a>
           </nav>
           </header>
-          <main className="stimulus-layout">
-            <section className="stimulus-main">
-              <h1 className="stimulus-heading">{heading}</h1>
-              <div className="stimulus-card">
-                {lines.map((line, i) => (
-                  <p key={i} className="stimulus-line">
-                    {line}
-                  </p>
-                ))}
-              </div>
-              <div className="stimulus-actions">
-              <button
-                className="donate-open-button"
+      <main className="stimulus-layout">
+        <section>
+          <h1 className="stimulus-heading">{heading}</h1>
+
+          <div className="stimulus-card">
+            {lines.slice(0, visibleCount).map((line, i) => (
+              <p 
+                key={i} 
+                className={`stimulus-line ${displayMode === 'expanded' ? 'reveal' : ''}`}
               >
-                ♥ Donate
-              </button>
-              </div>
-            </section>
-          </main>
+                {line}
+              </p>
+            ))}
+          </div>
+          <div className="stimulus-actions">
+            {showButton &&(
+              <button
+              type="button"
+              disabled={!allVisible}
+              className={`donate-open-button ${displayMode === 'expanded' ? 'reveal' : ''}`}
+            >
+              ♥ Donate
+            </button>
+            )}
+          </div>
+        </section>
+
+        
+      </main>
         </div>
       </div>
 
