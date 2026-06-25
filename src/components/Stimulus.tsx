@@ -81,7 +81,7 @@ export default function Stimulus({ appealType, displayMode, onNext }: Props) {
           <div className="stimulus-actions">
             {showButton && (
               <button
-                className="stimulus-button"
+                className={`stimulus-button ${displayMode === 'expanded' ? 'reveal' : ''}`}
                 onClick={handleNext}
               >
                 Continue →

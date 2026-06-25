@@ -108,7 +108,7 @@ export default function MeasuresScreen({
               <button
               type="button"
               disabled={!allVisible}
-              className="donate-open-button"
+              className={`donate-open-button ${displayMode === 'expanded' ? 'reveal' : ''}`}
             >
               ♥ Donate
             </button>

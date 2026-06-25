@@ -21,7 +21,7 @@ html {
 /* Upscale font layouts for extra-large/ultra-wide screens */
 @media (min-width: 1900px) {
   html {
-    font-size: 21px; 
+    font-size: 22px; 
   }
 }
 
@@ -868,9 +868,6 @@ p {
 }
 
 
-.reveal {
-  animation: fadeIn 0.6s ease;
-}
 
 @keyframes fadeIn {
   from {

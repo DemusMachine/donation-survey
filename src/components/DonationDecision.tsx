@@ -98,7 +98,7 @@ export default function DonationDecision({
               <button
               type="button"
               disabled={!allVisible}
-              className="donate-open-button"
+              className={`donate-open-button ${displayMode === 'expanded' ? 'reveal' : ''}`}
               onClick={() => setShowModal(true)}
             >
               ♥ Donate
