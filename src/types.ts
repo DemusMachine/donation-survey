@@ -22,6 +22,7 @@ export interface SurveyData {
   donationAmount: number
   stimulusClicks: number
   stimulusDwellMs: number
+  donationDwellMs: number
   responses: LikertResponses
   gender: string
   genderOther: string
