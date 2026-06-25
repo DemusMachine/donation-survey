@@ -104,6 +104,7 @@ export default function App() {
 
       {step === 'measures' && (
         <MeasuresScreen
+          displayMode={condition.displayMode}
           appealType={condition.appealType}
           responses={responses}
           setResponses={setResponses}

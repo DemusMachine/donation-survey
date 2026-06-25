@@ -65,7 +65,6 @@ export default function Stimulus({ appealType, displayMode, onNext }: Props) {
 
       <main className="stimulus-layout">
         <section className="stimulus-main">
-          <div className="stimulus-kicker">{focusLabel}</div>
           <h1 className="stimulus-heading">{heading}</h1>
 
           <div className="stimulus-card">

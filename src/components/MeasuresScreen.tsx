@@ -1,11 +1,12 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef} from 'react'
 import { appealContent, measureBlocks, measuresInstructionText } from '../content'
-import { AppealType, LikertResponses } from '../types'
+import { AppealType, LikertResponses, DisplayMode } from '../types'
 import LikertScale from './LikertScale'
 import logoImg from '../assets/q.jpg'
 
 interface Props {
   appealType: AppealType
+  displayMode: DisplayMode
   responses: LikertResponses
   setResponses: (r: LikertResponses) => void
   onNext: () => void
@@ -13,15 +14,36 @@ interface Props {
 
 export default function MeasuresScreen({
   appealType,
+  displayMode,
   responses,
   setResponses,
   onNext,
 }: Props) {
   const [section, setSection] = useState(0)
-  
-  // 1. SAFEST FALLBACK EXTRACTION LOGIC
-  // If appealType or displayMode are missing or undefined, default gracefully
   const { heading, lines } = appealContent[appealType]
+  const [visibleCount, setVisibleCount] = useState(
+    displayMode === 'control' ? lines.length : 1,
+  )
+  const [showButton,setShowButton] = useState(false)
+
+  useEffect(() => {
+        if (section !== 1) return
+    if (displayMode !== 'expanded') return
+    if (visibleCount >= lines.length) return
+    const timer = setTimeout(() => setVisibleCount((c) => c + 1), 1500)
+    return () => clearTimeout(timer)
+  }, [section, displayMode, visibleCount, lines.length])
+
+  const allVisible = visibleCount >= lines.length
+  useEffect(() => {
+    if (!allVisible) return
+    if (displayMode === 'control') {
+      setShowButton(true)
+      return
+    }
+    const timer = setTimeout(() => setShowButton(true), 1500)
+    return () => clearTimeout(timer)
+  }, [allVisible, displayMode])
 
   function handleChange(id: string, value: number) {
     setResponses({ ...responses, [id]: value })
@@ -68,25 +90,35 @@ export default function MeasuresScreen({
             <a href="#">Contact Us</a>
           </nav>
           </header>
-          <main className="stimulus-layout">
-            <section className="stimulus-main">
-              <h1 className="stimulus-heading">{heading}</h1>
-              <div className="stimulus-card">
-                {lines.map((line, i) => (
-                  <p key={i} className="stimulus-line">
-                    {line}
-                  </p>
-                ))}
-              </div>
-              <div className="stimulus-actions">
-              <button
-                className="donate-open-button"
+      <main className="stimulus-layout">
+        <section className="stimulus-main">
+          <h1 className="stimulus-heading">{heading}</h1>
+
+          <div className="stimulus-card">
+            {(section === 1 ? lines.slice(0, visibleCount) : lines).map((line, i) => (
+              <p 
+                key={i} 
+                className={`stimulus-line ${displayMode === 'expanded' ? 'reveal' : ''}`}
               >
-                ♥ Donate
-              </button>
-              </div>
-            </section>
-          </main>
+                {line}
+              </p>
+            ))}
+          </div>
+          <div className="stimulus-actions">
+            {showButton &&(
+              <button
+              type="button"
+              disabled={!allVisible}
+              className="donate-open-button"
+            >
+              ♥ Donate
+            </button>
+            )}
+          </div>
+        </section>
+
+        
+      </main>
         </div>
       </div>
 

@@ -80,7 +80,6 @@ export default function DonationDecision({
 
         <main className="stimulus-layout stimulus-layout-compact">
           <section className="stimulus-main stimulus-main-compact">
-            <div className="stimulus-kicker">Donation preview</div>
             <h1 className="stimulus-heading stimulus-heading-compact">{heading}</h1>
 
             <div className="stimulus-card stimulus-card-compact">
