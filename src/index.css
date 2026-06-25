@@ -8,8 +8,11 @@
   --surface: #ffffff;
   --surface-alt: #eef5fb;
 }
-html {
-  font-size: 16px;
+
+@media (min-width: 768px) {
+  html {
+    font-size: 15px; 
+  }
 }
 
 @media (min-width: 1440px) {
@@ -18,10 +21,9 @@ html {
   }
 }
 
-/* Upscale font layouts for extra-large/ultra-wide screens */
-@media (min-width: 1900px) {
+@media (min-width: 1537px) {
   html {
-    font-size: 22px; 
+    font-size: 28px; 
   }
 }
 
@@ -314,19 +316,8 @@ body {
   border: 2px solid #4a7dff;
   border-radius: 10px;
   overflow: hidden;
-  height: 64px;
+  height: 4rem;
   background: white;
-}
-
-.donation-dollar {
-  width: 58px;
-  display: grid;
-  place-items: center;
-  font-size: 1.75rem;
-  color: #1f2f66;
-  background: #f4f7ff;
-  border-right: 1px solid #d7e2ff;
-  flex-shrink: 0;
 }
 
 .donation-amount-input {
