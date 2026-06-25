@@ -28,8 +28,12 @@ export default function Demographics({
   onSubmit,
 }: Props) {
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const ageNumber = parseInt(age, 10);
+  const isAgeValid = !isNaN(ageNumber) && ageNumber >= 18 && ageNumber <= 100;
+  const isGenderValid =
+    gender.trim() !== '' && (gender !== 'Other' || genderOther.trim() !== '');
 
-  const canSubmit = gender.trim() !== '' && age.trim() !== '' && !isSubmitting
+  const canSubmit = gender.trim() !== '' && age.trim() !== '' && isGenderValid && isAgeValid && !isSubmitting
   const { heading, lines } = appealContent[appealType]
   const [visibleCount, setVisibleCount] = useState(
     displayMode === 'control' ? lines.length : 1,
@@ -153,7 +157,17 @@ function handleFormSubmit() {
           max={100}
           value={age}
           onChange={(e) => setAge(e.target.value)}
+          onKeyDown={(e) => {
+              if (!/[0-9]/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Delete') {
+                e.preventDefault();
+              }
+            }}
         />
+          {age.trim() !== '' && !isAgeValid && (
+            <span style={{ color: '#d32f2f', fontSize: '0.85rem' }}>
+              Please, enter a valid age between 18 and 100.
+            </span>
+          )}
       </label>
       <p>Please, click the "Submit" button only 1 time and wait.</p>
       <button disabled={!canSubmit} onClick={handleFormSubmit}>
