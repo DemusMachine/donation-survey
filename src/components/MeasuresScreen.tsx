@@ -132,8 +132,8 @@ export default function MeasuresScreen({
             item={item}
             value={responses[item.id]}
             onChange={handleChange}
-            lowLabel={block.lowLabel}
-            highLabel={block.highLabel}
+            lowLabel={item.lowLabel ?? block.lowLabel}
+            highLabel={item.highLabel ?? block.highLabel}
           />
         ))}
         <button disabled={!answered} onClick={handleContinue}>

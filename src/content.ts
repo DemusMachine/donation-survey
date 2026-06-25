@@ -28,7 +28,7 @@ export const appealContent: Record<AppealType, { heading: string; lines: string[
 
 // Page 2 - shown once, right after consent.
 export const infoPage2Text =
-  ['Next, you will read information about Help 4 Needy, an organization that provides assistance to children in need.',
+  ['Next, you will read information about Help 4 Needy, a non-profit coalition to combat the rising conditions of poverty.',
      'Please carefully read the following information from our official website.'
 ];
 
@@ -52,6 +52,8 @@ export interface LikertItem {
   id: string
   text: string
   reverse?: boolean
+  lowLabel?: string
+  highLabel?: string
 }
 
 export interface MeasureBlock {
@@ -111,9 +113,9 @@ export const measureBlocks: MeasureBlock[] = [
     lowLabel: '',
     highLabel: '',
     items: [
-      { id: 'ar1', text: 'I feel calm \u2013 I feel excited' },
-      { id: 'ar2', text: 'I feel relaxed \u2013 I feel aroused' },
-      { id: 'ar3', text: 'I feel sleepy \u2013 I feel stimulated' },
+      { id: 'ar1', text: 'I feel calm \u2013 I feel excited', lowLabel:'Feel Rather Calm', highLabel: 'Feel Rather Excited'},
+      { id: 'ar2', text: 'I feel relaxed \u2013 I feel aroused', lowLabel:'Feel Rather Relaxed', highLabel: 'Feel Rather Aroused' },
+      { id: 'ar3', text: 'I feel sleepy \u2013 I feel stimulated', lowLabel:'Feel Rather Sleepy', highLabel: 'Feel Rather Stimulated' },
     ],
   },
   {
