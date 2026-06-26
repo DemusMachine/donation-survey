@@ -8,6 +8,35 @@ export const appealContent: Record<AppealType, { heading: string; lines: string[
     heading: 'Teach to fish: Help us help others become self-sufficient!',
     lines: [
       'Help 4 Needy Center is a nonprofit coalition to combat the rising conditions of poverty.',
+      'Our focus is on providing resources to help individuals become self-sufficient.',
+      'Help 4 Needy provides assistance to individuals in a variety of ways that are designed to promote their self-sufficiency and ensure that these individuals can eventually support themselves moving forward (e.g., skills training; education).',
+      'These services give us the opportunity to work with needy individuals so they may become self-sufficient (e.g., skills training; education).',
+      'Our vision is to be the pinnacle of defense against poverty from our service area through a focus on self-sufficiency.',
+      'To achieve this goal, we are currently requesting cash donations.',
+      'YOUR partnership with us makes helping needy individuals become self-sufficient possible!',
+      'Thank you for your support.'
+    ],
+  },
+  immediate: {
+    heading: 'Give a fish: Help us help others meet their immediate needs!',
+    lines: [
+      'Help 4 Needy Center is a nonprofit coalition to combat the rising conditions of poverty.',
+      'Our focus is on providing resources to help individuals meet their immediate needs directly.', 
+      'Help 4 Needy provides assistance to individuals in a variety of ways that are designed to meet their short-term needs and ensure that assistance is provided to address the current issues facing those in need (e.g., living materials; food).',
+      'These services give us the opportunity to work with needy individuals so that their immediate needs are met (e.g., living materials; food).',
+      'Our vision is to be the pinnacle of defense against poverty from our service area through a focus on meeting immediate needs.',
+      'To achieve this goal, we are currently requesting cash donations.', 
+      'YOUR partnership with us makes helping needy individuals meet their immediate needs possible!',
+      'Thank you for your support.'
+    ],
+  },
+}
+
+export const appealContentSentences: Record<AppealType, { heading: string; lines: string[] }> = {
+  autonomous: {
+    heading: 'Teach to fish: Help us help others become self-sufficient!',
+    lines: [
+      'Help 4 Needy Center is a nonprofit coalition to combat the rising conditions of poverty.',
       'Our focus is on providing resources to help individuals become self-sufficient. Help 4 Needy provides assistance to individuals in a variety of ways that are designed to promote their self-sufficiency and ensure that these individuals can eventually support themselves moving forward (e.g., skills training; education).',
       'These services give us the opportunity to work with needy individuals so they may become self-sufficient (e.g., skills training; education).',
       'Our vision is to be the pinnacle of defense against poverty from our service area through a focus on self-sufficiency. To achieve this goal, we are currently requesting cash donations. YOUR partnership with us makes helping needy individuals become self-sufficient possible!',

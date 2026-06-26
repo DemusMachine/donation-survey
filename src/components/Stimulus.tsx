@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState} from 'react'
 import { AppealType, DisplayMode } from '../types'
 import { appealContent } from '../content'
 import logoImg from '../assets/q.jpg'
+
 
 interface Props {
   appealType: AppealType
@@ -33,7 +34,7 @@ export default function Stimulus({ appealType, displayMode, onNext }: Props) {
       setShowButton(true)
       return
     }
-    const timer = setTimeout(() => setShowButton(true), 1500)
+    const timer = setTimeout(() => setShowButton(true), 2500)
     return () => clearTimeout(timer)
   }, [allVisible, displayMode])
 

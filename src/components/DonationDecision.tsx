@@ -1,7 +1,11 @@
-import { useState, useEffect , useRef} from 'react'
+import { useState, useEffect , useRef, useMemo} from 'react'
 import { AppealType, DisplayMode } from '../types'
-import { appealContent } from '../content'
+import { appealContent, appealContentSentences } from '../content'
 import logoImg from '../assets/q.jpg'
+
+function splitSentences(paragraph: string): string[] {
+  return paragraph.split(/(?<=[.!?])\s+/).filter(Boolean)
+}
 
 interface Props {
   appealType: AppealType
@@ -14,32 +18,53 @@ export default function DonationDecision({
   displayMode,
   onNext,
 }: Props) {
-  const { heading, lines } = appealContent[appealType]
+const { heading, lines } = appealContentSentences[appealType]
+  const sentenceUnits = useMemo(
+    () =>
+      lines.flatMap((line, paragraphIndex) =>
+        splitSentences(line).map((sentence) => ({ paragraphIndex, sentence })),
+      ),
+    [lines],
+  )
+
+  const paragraphSentenceGroups = useMemo(() => {
+    const groups: { paragraphIndex: number; sentence: string; globalIndex: number }[][] =
+      lines.map(() => [])
+    sentenceUnits.forEach((unit, globalIndex) => {
+      groups[unit.paragraphIndex].push({ ...unit, globalIndex })
+    })
+    return groups
+  }, [lines, sentenceUnits])
+
+  const [visibleCount, setVisibleCount] = useState(
+    displayMode === 'control' ? lines.length : Math.min(1, sentenceUnits.length),
+  )
+
+
   const [showModal, setShowModal] = useState(false)
   const [amount, setAmount] = useState('0')
   const [error, SetError] = useState('')
   const [showButton,setShowButton] = useState(false)
-  const [visibleCount, setVisibleCount] = useState(
-    displayMode === 'control' ? lines.length : 1,
-  )
+
   const startTime = useRef(Date.now())
  
   useEffect(() => {
-      if (displayMode !== 'expanded') return
-      if (visibleCount >= lines.length) return
-      const timer = setTimeout(() => setVisibleCount((c) => c + 1), 3000)
-      return () => clearTimeout(timer)
-    }, [displayMode, visibleCount, lines.length])
-  
-    const allVisible = visibleCount >= lines.length
+    if (displayMode !== 'expanded') return
+    if (visibleCount >= sentenceUnits.length) return
+    const timer = setTimeout(() => setVisibleCount((c) => c + 1), 3000)
+    return () => clearTimeout(timer)
+  }, [displayMode, visibleCount, sentenceUnits.length])
 
-    useEffect(() => {
+  const allVisible =
+    displayMode === 'control' ? true : visibleCount >= sentenceUnits.length
+
+  useEffect(() => {
     if (!allVisible) return
     if (displayMode === 'control') {
       setShowButton(true)
       return
     }
-    const timer = setTimeout(() => setShowButton(true), 1500)
+    const timer = setTimeout(() => setShowButton(true), 2500)
     return () => clearTimeout(timer)
   }, [allVisible, displayMode])
   
@@ -84,16 +109,26 @@ export default function DonationDecision({
           <section>
             <h1 className="stimulus-heading stimulus-heading-compact">{heading}</h1>
 
-            <div className="stimulus-card stimulus-card-compact">
-              {lines.slice(0, visibleCount).map((line, i) => (
-                <p 
-                  key={i} 
-                  className={`stimulus-line ${displayMode === 'expanded' ? 'reveal' : ''}`}
-                >
-                  {line}
-                </p>
-              ))}
-            </div>
+          <div className="stimulus-card">
+            {displayMode === 'control'
+              ? lines.map((line, i) => (
+                  <p key={i} className="stimulus-line">
+                    {line}
+                  </p>
+                ))
+              : paragraphSentenceGroups.map((sentences, paragraphIndex) => (
+                  <p key={paragraphIndex} className="stimulus-line reveal">
+                    {sentences.map(({ sentence, globalIndex }, i) => (
+                      <span
+                        key={i}
+                        className={`sentence ${globalIndex < visibleCount ? 'is-visible' : ''}`}
+                      >
+                        {sentence}{' '}
+                      </span>
+                    ))}
+                  </p>
+                ))}
+          </div>
             
           <div className="stimulus-actions">
             {showButton &&(
