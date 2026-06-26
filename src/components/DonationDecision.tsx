@@ -18,7 +18,7 @@ export default function DonationDecision({
   displayMode,
   onNext,
 }: Props) {
-const { heading, lines } = appealContentSentences[appealType]
+  const { heading, lines } = appealContentSentences[appealType]
   const sentenceUnits = useMemo(
     () =>
       lines.flatMap((line, paragraphIndex) =>
@@ -37,7 +37,7 @@ const { heading, lines } = appealContentSentences[appealType]
   }, [lines, sentenceUnits])
 
   const [visibleCount, setVisibleCount] = useState(
-    displayMode === 'control' ? lines.length : Math.min(1, sentenceUnits.length),
+    displayMode === 'control' ? sentenceUnits.length : Math.min(1, sentenceUnits.length),
   )
 
 
@@ -48,7 +48,7 @@ const { heading, lines } = appealContentSentences[appealType]
 
   const startTime = useRef(Date.now())
  
-  useEffect(() => {
+    useEffect(() => {
     if (displayMode !== 'expanded') return
     if (visibleCount >= sentenceUnits.length) return
     const timer = setTimeout(() => setVisibleCount((c) => c + 1), 3000)
@@ -108,7 +108,6 @@ const { heading, lines } = appealContentSentences[appealType]
         <main className="stimulus-layout stimulus-layout-compact">
           <section>
             <h1 className="stimulus-heading stimulus-heading-compact">{heading}</h1>
-
           <div className="stimulus-card">
             {displayMode === 'control'
               ? lines.map((line, i) => (
@@ -117,7 +116,7 @@ const { heading, lines } = appealContentSentences[appealType]
                   </p>
                 ))
               : paragraphSentenceGroups.map((sentences, paragraphIndex) => (
-                  <p key={paragraphIndex} className="stimulus-line reveal">
+                  <p key={paragraphIndex} className="stimulus-line">
                     {sentences.map(({ sentence, globalIndex }, i) => (
                       <span
                         key={i}
