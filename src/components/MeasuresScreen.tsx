@@ -30,7 +30,7 @@ export default function MeasuresScreen({
   useEffect(() => {
     if (displayMode !== 'expanded') return
     if (visibleCount >= lines.length) return
-    const timer = setTimeout(() => setVisibleCount((c) => c + 1), 1500)
+    const timer = setTimeout(() => setVisibleCount((c) => c + 1), 3000)
     return () => clearTimeout(timer)
   }, [displayMode, visibleCount, lines.length])
 
